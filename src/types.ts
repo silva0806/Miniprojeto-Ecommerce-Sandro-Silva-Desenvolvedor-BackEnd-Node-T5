@@ -1,4 +1,5 @@
-export type Categoria = "eletronicos" | "alimentos" | "vestuario";
+// definição dos tipos utilizados pelo sistema
+export type Categoria = "eletronicos" | "alimentos" | "vestuario" | "calcados";
 
 export type Produto = {
   codigo: number;
@@ -6,11 +7,11 @@ export type Produto = {
   categoria: Categoria;
   preco: number;
   estoque: number;  
-}
+};
 
 export type Cliente = {
     id: number;
     nome: string;
     email: string;
-}
+};
 
