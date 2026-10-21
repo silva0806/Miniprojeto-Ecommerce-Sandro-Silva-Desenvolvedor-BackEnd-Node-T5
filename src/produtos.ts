@@ -2,7 +2,7 @@ import type { Produto } from "./types";
 
 export const produtos: Produto[] = [];
 
-export function buscarProduto(codigo: number): Produto | undefined {
+export default function buscarProdutoPeloCodigo(codigo: number): Produto | undefined {
   return produtos.find(produto => produto.codigo === codigo);
 }
 
@@ -12,7 +12,7 @@ export function buscarProdutoPorNome(nome: string): Produto [] {
 }
 
 export function cadastrarProduto(produto: Produto): boolean {
-  const existente = buscarProduto(produto.codigo);
+  const existente = buscarProdutoPeloCodigo(produto.codigo);
 
   if(existente != undefined) {
     console.log(`Já existe um produto com o código: ${produto.codigo}`);

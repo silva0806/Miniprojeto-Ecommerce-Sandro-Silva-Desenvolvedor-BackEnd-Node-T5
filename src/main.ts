@@ -1,4 +1,5 @@
-import { cadastrarProduto, buscarProduto, listarProdutos, buscarProdutoPorNome , filtrarProdutoPorCategoria} from "./produtos";
+import buscarProdutoPeloCodigo from "./produtos";
+import buscarProduto, { cadastrarProduto, listarProdutos, buscarProdutoPorNome , filtrarProdutoPorCategoria} from "./produtos";
 
 console.log("***************************************");
 console.log("Requisitos produtos");
@@ -25,7 +26,7 @@ console.log("");
 console.log("***************************************");
 console.log("Busca produtos pelo codigo 6");
 console.log("***************************************");
-console.log(buscarProduto(6));
+console.log(buscarProdutoPeloCodigo(6));
 
 console.log("");
 console.log("***************************************");
