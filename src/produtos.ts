@@ -2,7 +2,7 @@ import type { Produto } from "./types";
 
 export const produtos: Produto[] = [];
 
-export default function buscarProdutoPeloCodigo(codigo: number): Produto | undefined {
+export function buscarProdutoPeloCodigo(codigo: number): Produto | undefined {
   return produtos.find(produto => produto.codigo === codigo);
 }
 

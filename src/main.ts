@@ -1,8 +1,18 @@
-import { buscarClientePeloID, cadastrarCliente, listarClientes } from "./clientes";
-import buscarProdutoPeloCodigo from "./produtos";
-import buscarProduto, { cadastrarProduto, listarProdutos
-    , buscarProdutoPorNome , filtrarProdutoPorCategoria
-    , atualizarInformacoesProduto, removerProduto} from "./produtos";
+import { buscarClientePeloID
+    , cadastrarCliente
+    , listarClientes } from "./clientes";
+import { buscarProdutoPeloCodigo
+    , cadastrarProduto
+    , listarProdutos
+    , buscarProdutoPorNome 
+    , filtrarProdutoPorCategoria
+    , atualizarInformacoesProduto
+    , removerProduto} from "./produtos";
+import type { Carrinho } from "./carrinho";
+import { adicionarProdutoNoCarrinho
+    , removerProdutoDoCarrinho
+    , alterarQuantidadeItem    
+    , listarCarrinho } from "./carrinho";
 
 console.log("***************************************");
 console.log("Requisitos produtos");
@@ -49,7 +59,7 @@ console.log("");
 console.log("***************************************");
 console.log("Atualizar cadastro produto ID 1 ");
 console.log("***************************************");
-atualizarInformacoesProduto({codigo: 1, nome: "Teclado alterado", preco: 355.50, estoque: 15, categoria: "alimentos"})
+atualizarInformacoesProduto({codigo: 1, nome: "Teclado Com Nome Alterado", preco: 355.50, estoque: 15, categoria: "alimentos"})
 listarProdutos();
 
 console.log("");
@@ -94,5 +104,44 @@ console.log("");
 console.log("***************************************");
 console.log("Adicionar um produto no carrinho");
 console.log("***************************************");
+
+const cliente1 = buscarClientePeloID(1);
+if(cliente1) {
+    let carrinho: Carrinho = {
+        id: 1,
+        cliente: cliente1,
+        itens: []
+     };
+     
+    adicionarProdutoNoCarrinho(carrinho, 1, 1);
+    adicionarProdutoNoCarrinho(carrinho, 6, 1);
+    adicionarProdutoNoCarrinho(carrinho, 7, -2);
+    adicionarProdutoNoCarrinho(carrinho, 8, 1);
+    adicionarProdutoNoCarrinho(carrinho, 6, 100);
+    adicionarProdutoNoCarrinho(carrinho, 1, 1);
+
+    listarCarrinho(carrinho);
+    
+    console.log("***************************************");
+    console.log("Removendo um produto no carrinho");
+    console.log("***************************************");
+    removerProdutoDoCarrinho(carrinho, 6);
+
+    listarCarrinho(carrinho);
+
+    console.log("***************************************");
+    console.log("Alterar a quantidade de um produto no carrinho");
+    console.log("***************************************");
+    alterarQuantidadeItem(carrinho, 8, 5);
+    alterarQuantidadeItem(carrinho, 1, 0);
+    listarCarrinho(carrinho);
+    
+     
+} else {
+    console.log(`Cliente não encontrado`)
+}
+
+
+
 
 
