@@ -127,6 +127,9 @@ if(cliente1) {
     console.log("***************************************");
     removerProdutoDoCarrinho(carrinho, 6);
 
+    console.log("");
+    console.log("");
+
     listarCarrinho(carrinho);
 
     console.log("***************************************");
@@ -134,6 +137,10 @@ if(cliente1) {
     console.log("***************************************");
     alterarQuantidadeItem(carrinho, 8, 5);
     alterarQuantidadeItem(carrinho, 1, 0);
+
+    console.log("");
+    console.log("");
+
     listarCarrinho(carrinho);
     
      

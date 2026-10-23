@@ -1,7 +1,7 @@
-import type { Item, Cliente, Produto } from "./types";
+import type { Itens, Item, Cliente, Produto } from "./types";
 import { buscarProdutoPeloCodigo } from "./produtos";
 
-export const Itens: Item[] = [];
+//export const Itens: Item[] = [];
 
 export type Carrinho = {
   id: number;
@@ -175,6 +175,8 @@ export function listarItensCarrinho(carrinho: Carrinho): void {
 }
 
 export function listarCarrinho(carrinho: Carrinho): void {
+    console.log("***************************************");
+    console.log(`Dados do carrinho de compras`);
     listarCabecalhoCarrinho(carrinho);
     listarItensCarrinho(carrinho);    
 }
