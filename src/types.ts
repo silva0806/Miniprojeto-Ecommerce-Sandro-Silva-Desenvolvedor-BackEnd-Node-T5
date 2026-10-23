@@ -15,3 +15,10 @@ export type Cliente = {
     email: string;
 };
 
+export type Item = {
+  codigo: number;
+  nome: string;
+  quantidade: number;
+  preco: number;
+}
+

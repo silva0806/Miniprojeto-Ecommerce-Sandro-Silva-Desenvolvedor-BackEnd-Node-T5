@@ -88,3 +88,11 @@ console.log("Buscar clientes por ID");
 console.log("***************************************");
 console.log(buscarClientePeloID(1));
 
+console.log("");
+console.log("");
+
+console.log("***************************************");
+console.log("Adicionar um produto no carrinho");
+console.log("***************************************");
+
+
