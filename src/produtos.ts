@@ -6,30 +6,38 @@ export default function buscarProdutoPeloCodigo(codigo: number): Produto | undef
   return produtos.find(produto => produto.codigo === codigo);
 }
 
-export function buscarProdutoPorNome(nome: string): Produto [] {
+export function buscarProdutoPorNome(nome: string): Produto[] {
     return produtos.filter(produto => produto.nome.includes(nome));
 
+}
+
+export function validarEstoqueProduto(produto: Produto): boolean {
+    return (produto.estoque >= 0);
+}
+
+export function validarPrecoProduto(produto: Produto): boolean {
+    return (produto.preco > 0);
 }
 
 export function cadastrarProduto(produto: Produto): boolean {
   const existente = buscarProdutoPeloCodigo(produto.codigo);
 
-  if(existente != undefined) {
+  if(existente !== undefined) {
     console.log(`Já existe um produto com o código: ${produto.codigo}`);
     return false;
   }
 
   if(produto.nome.length <= 0) {
-    console.log(`Nome inválido para o produto: "${produto.nome}"`);
+    console.log(`Informe um Nome válido para o produto: "${produto.nome}"`);
     return false;
   }
-
-  if(produto.preco <= 0) {
+  
+  if(!validarPrecoProduto(produto)) {
     console.log(`Produto ${produto.nome} com Preço inválido`);
     return false;
   }
 
-  if(produto.estoque < 0) {
+  if(!validarEstoqueProduto(produto)) {
     console.log(`Produto ${produto.nome} com Estoque inválido`);
     return false;    
   }
@@ -38,6 +46,53 @@ export function cadastrarProduto(produto: Produto): boolean {
   console.log(`Produto ${produto.nome} foi adicionado`);
   return true;
 
+}
+
+export function atualizarInformacoesProduto(produto: Produto): boolean {
+    const prod = buscarProdutoPeloCodigo(produto.codigo);
+
+  if(prod === undefined) {
+    console.log(`Produto ${produto.nome} não localizado`);
+    return false;
+  }
+
+  if(!validarEstoqueProduto(produto)){
+    console.log(`Produto ${produto.nome} com estoque inválido`);
+    return false;
+  }
+
+  if(!validarPrecoProduto(produto)){
+    console.log(`Produto ${produto.nome} com preço inválido`);
+    return false;
+  }
+
+  prod.nome = produto.nome; 
+  prod.categoria = produto.categoria;
+  prod.estoque = produto.estoque;
+  prod.preco = produto.preco;    
+
+  console.log(`Produto ${produto.codigo} atualizado`);
+
+  return true;
+
+}
+
+export function removerProduto(codigo: number): boolean {
+  const produtoExistente = buscarProdutoPeloCodigo(codigo);
+
+  if (produtoExistente === undefined) {
+    console.log(`Produto com código ${codigo} não localizado`);
+    return false;
+  }
+
+  const index = produtos.findIndex(produto => produto.codigo === codigo);
+  if (index !== -1) {
+    produtos.splice(index, 1);
+    console.log(`Produto ${produtoExistente.nome} foi removido com sucesso`);
+    return true;
+  }
+
+  return false;
 }
 
 export function listarProdutos(): void {
