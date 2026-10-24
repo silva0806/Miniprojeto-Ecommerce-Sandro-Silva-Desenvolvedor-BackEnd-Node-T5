@@ -59,7 +59,8 @@ miniprojeto-ecommerce/
 
 # Instruções para compilar e executar o projeto
 
-- Abra o terminal na pasta raiz e execute `tsc` para rodar o compilador. Voce pode executar `tsc -w` para manter o compilador compilando de forma automática a cada alteração que for realizada em arquivos `.ts` ;
+- É necessário ter o TypeScript instalado globalmente.
+- Abra o terminal na pasta raiz e execute `tsc` para rodar o compilador. Você pode executar `tsc -w` para manter o compilador compilando de forma automática a cada alteração que for realizada em arquivos `.ts`
 - Depois execute o arquivo principal com `node dist/main.js`, a partir da pasta raiz (ou `cd dist` e `node main.js`);
 - O arquivo principal do projeto é o main.js
 

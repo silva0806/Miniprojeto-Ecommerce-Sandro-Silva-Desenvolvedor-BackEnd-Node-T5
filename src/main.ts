@@ -8,14 +8,12 @@ import { buscarProdutoPeloCodigo
     , filtrarProdutoPorCategoria
     , atualizarInformacoesProduto
     , removerProduto} from "./produtos";
-import type { Cliente, Produto } from "./types";
 import { Carrinho
     , adicionarProdutoNoCarrinho
     , removerProdutoDoCarrinho
     , alterarQuantidadeItem    
     , listarCarrinho } from "./carrinho";
-import { registrarPedido
-    , Pedidos
+import { registrarPedido    
     , consultarPedidos
  } from "./pedidos";
 
