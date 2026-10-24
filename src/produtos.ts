@@ -114,3 +114,17 @@ export function listarProdutos(): void {
 export function filtrarProdutoPorCategoria(categoria: string): Produto[] {
     return produtos.filter(produto => produto.categoria === categoria);
 }
+
+export function atualizarEstoque(codigoProduto: number, quantidade: number): boolean {
+
+    let produto = buscarProdutoPeloCodigo(codigoProduto);
+
+    if(produto == undefined) {
+        console.log(`Produto ${codigoProduto} não encontrado`); 
+        return false;
+    }
+ 
+    produto.estoque -= quantidade;
+
+    return true
+}

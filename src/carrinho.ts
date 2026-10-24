@@ -1,7 +1,5 @@
-import type { Itens, Item, Cliente, Produto } from "./types";
+import type { Item, Cliente, Produto } from "./types";
 import { buscarProdutoPeloCodigo } from "./produtos";
-
-//export const Itens: Item[] = [];
 
 export type Carrinho = {
   id: number;
@@ -35,17 +33,12 @@ export function adicionarProdutoNoCarrinho(
   const produto = buscarProdutoPeloCodigo(codigoDoProduto);
 
   if(!produto) {
-    console.log('Produto ${codigoProduto} não encontrado');
+    console.log(`Produto ${codigoDoProduto} não encontrado`);
     return false
   }
 
   if (!validarQuantidade(quantidade)) {
     console.log("Quantidade deve ser maior que zero");
-    return false;
-  }
-
-  if (!buscarProdutoPeloCodigo(produto.codigo)) {
-    console.log("Produto não existe no sistema");
     return false;
   }
 
@@ -122,6 +115,18 @@ export function alterarQuantidadeItem(
     console.log(`Quantidade do produto ${item.nome} deve ser maior que zero`);
     return false;
   }
+  
+  const produto = buscarProdutoPeloCodigo(item.codigo);
+
+  if(!produto) {
+    console.log(`Produto ${item.codigo} não encontrado`);
+    return false
+  }
+  
+  if (!validarEstoqueDisponivel(produto, novaQuantidade)) {
+      console.log(`Produto ${produto.nome} com Estoque insuficiente.`);
+      return false;
+  }       
 
   item.quantidade = novaQuantidade;
   console.log(`Quantidade do produto ${item.nome} alterada para ${novaQuantidade}`);
