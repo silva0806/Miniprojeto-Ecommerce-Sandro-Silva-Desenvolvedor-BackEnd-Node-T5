@@ -132,3 +132,4 @@ O arquivo `main.ts` executa todas essas operações, incluindo os casos inválid
 - Formatação de datas: https://pt.stackoverflow.com/questions/6526/como-formatar-data-no-javascript
 - Operador spread: https://www.luiztools.com.br/post/4-segredos-do-operador-spread-em-javascript/
 - Objeto Date: https://blog.betrybe.com/javascript/javascript-date/
+- Bloco de código : https://docs.github.com/pt/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks
