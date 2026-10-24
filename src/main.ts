@@ -151,12 +151,45 @@ if(cliente1) {
     console.log("");
     console.log("");
     console.log("***************************************");
-    console.log("Finalizar compra");
+    console.log("Finalizar compra: " + carrinho1.id);
     console.log("***************************************");
 
     registrarPedido(carrinho1);
 
     console.log(Pedidos);
+    
+} else {
+    console.log(`Cliente não encontrado`)
+}
+
+/////////////////////////////////////////
+let carrinhoV: Carrinho;
+
+const clienteV = buscarClientePeloID(4);
+if(clienteV) {
+    carrinhoV = {
+        id: 3,
+        cliente: clienteV,
+        itens: []
+     };
+        
+    listarCarrinho(carrinhoV);
+            
+    console.log("");
+    console.log("");
+    console.log("***************************************");
+    console.log("Finalizar compra: " + carrinhoV.id);
+    console.log("***************************************");
+
+    if(!registrarPedido(carrinhoV)) {
+        console.log("***************************************");
+        console.log("Não foi possível finalizar a compra");
+        console.log("***************************************");
+        console.log("");
+        console.log("");
+    };
+
+    //console.log(Pedidos);
     
 } else {
     console.log(`Cliente não encontrado`)
@@ -202,12 +235,12 @@ if(cliente2) {
     console.log("");
     console.log("");
     console.log("***************************************");
-    console.log("Finalizar compra");
+    console.log("Finalizar compra: " + carrinho2.id);
     console.log("***************************************");
 
     registrarPedido(carrinho2);
 
-    console.log(Pedidos);
+    //console.log(Pedidos);
     
 } else {
     console.log(`Cliente não encontrado`)
@@ -220,6 +253,7 @@ consultarPedidos(0);
 consultarPedidos(1);
 
 listarProdutos();
+
 
 
 

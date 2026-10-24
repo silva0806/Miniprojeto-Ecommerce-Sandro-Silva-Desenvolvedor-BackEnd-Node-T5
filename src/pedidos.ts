@@ -3,7 +3,6 @@ import { buscarProdutoPeloCodigo, atualizarEstoque } from "./produtos";
 import { Carrinho, calcularSubtotalItem } from "./carrinho";
 import { buscarClientePeloID } from "./clientes";
 
-
 export type Pedido = {
   id: number;
   cliente: Cliente;
