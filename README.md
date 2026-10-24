@@ -31,6 +31,7 @@ Organizar suas operações comerciais de uma loja por meio de um sistema que per
 - Dados mantidos em arrays, em memória, sem banco de dados
 
 # Estruturas dos arquivos
+```text
 miniprojeto-ecommerce/
 ├── src/
 │   ├── types.ts
@@ -43,15 +44,17 @@ miniprojeto-ecommerce/
 ├── README.md
 ├── tsconfig.json
 └── .gitignore
+```
 
-types.ts: definição dos tipos utilizados pelo sistema.
-produtos.ts: cadastro, consulta, atualização e remoção de produtos.
-clientes.ts: cadastro e consulta de clientes.
-carrinho.ts: operações do carrinho e cálculos dos valores.
-pedidos.ts: finalização e consulta de pedidos.
-main.ts: inicialização da aplicação e demonstração das funcionalidades
-tsconfig.json: configurações do typescript para o projeto
-.gitignore: arquivos e pastas que não farão parte do controle de versão do repositório
+- `types.ts`: definição dos tipos utilizados pelo sistema.
+- `produtos.ts`: cadastro, consulta, atualização e remoção de produtos.
+- `clientes.ts`: cadastro e consulta de clientes.
+- `carrinho.ts`: operações do carrinho e cálculos dos valores.
+- `pedidos.ts`: finalização e consulta de pedidos.
+- `main.ts`: inicialização da aplicação e demonstração das funcionalidades.
+- `dist/`: arquivos JavaScript gerados pela compilação (não é versionado).
+- `tsconfig.json`: configurações do TypeScript para o projeto.
+- `.gitignore`: arquivos e pastas que não farão parte do controle de versão do repositório.
 
 
 # Instruções para compilar e executar o projeto
