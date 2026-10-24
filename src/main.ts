@@ -37,6 +37,7 @@ cadastrarProduto({codigo: 7, nome: "Camiseta Nike", preco: 200, estoque: 30, cat
 cadastrarProduto({codigo: 8, nome: "Coca-Cola Lata 350 ml", preco: 8, estoque: 50, categoria: "alimentos"}); // válido
 cadastrarProduto({codigo: 9, nome: "Pepsi Lata 350 ml", preco: 0, estoque: 50, categoria: "alimentos"}); // preco inválido
 cadastrarProduto({codigo: 10, nome: "Sprite Lata 350 ml", preco: 7.5, estoque: 50, categoria: "alimentos"}); // inválido
+cadastrarProduto({codigo: 11, nome: "Nescau", preco: 12.5, estoque: 3, categoria: "alimentos"}); // inválido
 
 console.log("");
 console.log("");
@@ -163,9 +164,10 @@ if(cliente1) {
 }
 
 /////////////////////////////////////////
+/* Teste carrinho vazio */
 let carrinhoV: Carrinho;
 
-const clienteV = buscarClientePeloID(4);
+const clienteV = buscarClientePeloID(6);
 if(clienteV) {
     carrinhoV = {
         id: 3,
@@ -187,13 +189,48 @@ if(clienteV) {
         console.log("***************************************");
         console.log("");
         console.log("");
-    };
+    };    
+} else {
+    console.log(`Cliente não encontrado`)
+}
 
-    //console.log(Pedidos);
+/////////////////////////////////////////
+/* Teste carrinho com produto sem estoque */
+let carrinhoZ: Carrinho;
+
+const clienteZ = buscarClientePeloID(7);
+if(clienteZ) {
+    carrinhoZ = {
+        id: 4,
+        cliente: clienteZ,
+        itens: []
+     };
+        
+    adicionarProdutoNoCarrinho(carrinhoZ, 11, 3);
+
+    listarCarrinho(carrinhoZ);
+            
+    console.log("");
+    console.log("");
+    console.log("***************************************");
+    console.log("Finalizar compra: " + carrinhoZ.id);
+    console.log("***************************************");
+
+    //atualiza quantidade do produto para testar pedido com quantidade insuficiente
+    atualizarInformacoesProduto({codigo: 11, nome: "Nescau", preco: 12.50, estoque: 1, categoria: "alimentos"})
+
+    if(!registrarPedido(carrinhoZ)) {
+        console.log("***************************************");
+        console.log("Não foi possível finalizar a compra");
+        console.log("***************************************");
+        console.log("");
+        console.log("");
+    };
     
 } else {
     console.log(`Cliente não encontrado`)
 }
+
 
 let carrinho2: Carrinho;
 
@@ -239,8 +276,6 @@ if(cliente2) {
     console.log("***************************************");
 
     registrarPedido(carrinho2);
-
-    //console.log(Pedidos);
     
 } else {
     console.log(`Cliente não encontrado`)
