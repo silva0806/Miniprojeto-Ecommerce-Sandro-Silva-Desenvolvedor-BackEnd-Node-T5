@@ -36,8 +36,8 @@ cadastrarProduto({codigo: 6, nome: "Tênis Adidas", preco: 1200, estoque: 30, ca
 cadastrarProduto({codigo: 7, nome: "Camiseta Nike", preco: 200, estoque: 30, categoria: "vestuario"}); // válido
 cadastrarProduto({codigo: 8, nome: "Coca-Cola Lata 350 ml", preco: 8, estoque: 50, categoria: "alimentos"}); // válido
 cadastrarProduto({codigo: 9, nome: "Pepsi Lata 350 ml", preco: 0, estoque: 50, categoria: "alimentos"}); // preco inválido
-cadastrarProduto({codigo: 10, nome: "Sprite Lata 350 ml", preco: 7.5, estoque: 50, categoria: "alimentos"}); // inválido
-cadastrarProduto({codigo: 11, nome: "Nescau", preco: 12.5, estoque: 3, categoria: "alimentos"}); // inválido
+cadastrarProduto({codigo: 10, nome: "Sprite Lata 350 ml", preco: 7.5, estoque: 50, categoria: "alimentos"}); // válido
+cadastrarProduto({codigo: 11, nome: "Nescau", preco: 12.5, estoque: 3, categoria: "alimentos"}); // válido
 
 console.log("");
 console.log("");
@@ -156,8 +156,6 @@ if(cliente1) {
     console.log("***************************************");
 
     registrarPedido(carrinho1);
-
-    console.log(Pedidos);
     
 } else {
     console.log(`Cliente não encontrado`)
